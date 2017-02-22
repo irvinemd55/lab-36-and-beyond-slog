@@ -26,6 +26,7 @@ app.use(morgan(process.env.LOG_FORMAT));
 
 
 app.use(require('./router/auth-router.js'));
+app.use(require('./router/page-router.js'));
 
 app.use((err, req, res, next) => {
   console.error(err.message);
