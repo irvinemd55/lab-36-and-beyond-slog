@@ -4,13 +4,13 @@ const angular = require('angular');
 const uiRouter = require('angular-ui-router');
 angular.module('blogApp', [uiRouter])
 .config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider){
-  $urlRouterProvider.when('', './layout');
+  $urlRouterProvider.when('', '/layout');
 
   let routes = [
     {
       name: 'layout',
       url: '/layout',
-      template: '<layout> <layout>',
+      template: '<layout> </layout>',
     },
     {
       name: 'admin',

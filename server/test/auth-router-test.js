@@ -14,7 +14,7 @@ describe('testing auth router', function(){
 describe('testing GET /api/login', function() {
   it('should respond with a token and status of 200', (done) => {
     superagent.get(`${baseURL}/api/login`)
-    .auth('notslugbyte@notslugbyte.com', 'goodbyemoon')
+    .auth('irvinedowning@gmail.com', 'yadayadayada')
     .then(res => {
       console.log('token', res.text);
       expect(res.status).to.equal(200);
@@ -58,7 +58,7 @@ it('should return 401', (done) => {
 
 it('should return 401', (done) => {
   superagent.get(`${baseURL}/api/login`)
-  .auth('notslugbyte@notslugbyte.com','correct')
+  .auth('irvinedowning@gmail.com', 'wholelottanope')
   .then(done)
   .catch(res => {
     expect(res.status).to.equal(401);

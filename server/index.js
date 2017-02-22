@@ -6,6 +6,7 @@ const express = require('express');
 const firebase = require('firebase');
 const admin = require('firebase-admin');
 
+
 firebase.initializeApp({
   apiKey: process.env.FIREBASE_WEB_API_KEY,
   authDomain: `${process.env.FIREBASE_PROJECT_ID}.firebaseapp.com`,
@@ -22,6 +23,9 @@ let app = module.exports = express();
 
 app.use(cors());
 app.use(morgan(process.env.LOG_FORMAT));
+
+
+app.use(require('./router/auth-router.js'));
 
 app.use((err, req, res, next) => {
   console.error(err.message);
