@@ -1,6 +1,6 @@
 'use strict';
 
-require('./_layout.scss')
+// require('./_layout.scss')
 
 require('angular').module('blogApp')
 .component('layout', {

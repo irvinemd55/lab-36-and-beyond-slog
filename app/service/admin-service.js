@@ -2,7 +2,7 @@
 
 
 require('angular').module('blogApp')
-.service('authService', ['$log', '$q', '$window', '$http', authService])
+.service('authService', ['$log', '$q', '$window', '$http', authService]);
 
 function authService($log, $q, $window, $http){
 
@@ -20,7 +20,7 @@ function authService($log, $q, $window, $http){
     } catch (err) {
       return $q.reject(err);
     }
-  }
+  };
 
   // public variables and functions
   let authService = {};
@@ -34,7 +34,7 @@ function authService($log, $q, $window, $http){
     } catch(err) {
       return $q.reject(err);
     }
-  }
+  };
 
   authService.login = (user) => {
     let url = `${__API_URL__}/api/login`;
@@ -49,7 +49,7 @@ function authService($log, $q, $window, $http){
     return $http.get(url, config)
     .then(res => {
       return tokenSave(res.data);
-    })
+    });
   };
 
   return authService;

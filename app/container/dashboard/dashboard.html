@@ -1,0 +1,14 @@
+<div class="dashboard">
+  <h1> Le Dash </h1>
+
+  <page-select pages="$ctrl.pageSelectPages" show-all="$ctrl.pageSelectShowAll" selected="$ctrl.pageSelectSelected" handle-select="$ctrl.pageSelectHandleSelect">
+  </page-select>
+
+  <button ng-click="$ctrl.handlePageNew()"> NEWF </button>
+  <button ng-click="$ctrl.handlePageDelete($ctrl.pageSelectSelected)"> DELEFE </button>
+
+
+  <div marked="$ctrl.pageEditorPage.content"></div>
+
+  <page-editor page="$ctrl.pageEditorPage" handle-submit="$ctrl.pageEditorHandleSubmit"></page-editor>
+</div>
