@@ -3,8 +3,14 @@
 require('angular').module('blogApp')
 .component('dashboard', {
   template: require('./dashboard.html'),
-  controller: ['$log', 'pageService', function($log, pageService){
+  controller: ['$log', '$location', 'clipboard', 'pageService', 'authService', function($log, $location, clipboard, pageService, authService){
     this.$onInit = () => {
+
+      // authService.tokenFetch(); //making sure we have a token
+      this.pageLogout = () => {
+        authService.logout()
+        .then(() => $location.path('/admin'));
+      };
 
       this.pageSelectPages = [];
       this.pageSelectShowAll = false;
@@ -28,6 +34,11 @@ require('angular').module('blogApp')
 
       this.handlePageNew = () => {
         this.pageEditorPage = {title: '', content: '', showInNav: false};
+      };
+
+      this.handlePageCopy = (page) => {
+        console.log('did it hit?', clipboard.copyText);
+        clipboard.copyText(`[](/#!/page/${page.id})`);
       };
 
       this.handlePageDelete = (page) => {

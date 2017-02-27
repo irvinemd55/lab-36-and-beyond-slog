@@ -10,7 +10,7 @@ function AdminController($log, authService, $location) {
   this.$onInit = () => {
 
     authService.tokenFetch()
-    .then(() => $location.path('./dashboard'))
+    .then(() => $location.path('/dashboard'));
 
     this.loginUser = {email: '', password: ''};
     this.loginHandleSubmit = (user) => {
@@ -18,7 +18,7 @@ function AdminController($log, authService, $location) {
       .then(token => {
         $log.log('success', token);
         this.loginUser = {email: '', password: ''};
-        $location.path('./dashboard');
+        $location.path('/dashboard');
       })
       .catch($log.error);
     };

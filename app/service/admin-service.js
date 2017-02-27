@@ -2,9 +2,9 @@
 
 
 require('angular').module('blogApp')
-.service('authService', ['$log', '$q', '$window', '$http', authService]);
+.service('authService', ['$log', '$q', '$window', '$http', '$location', authService]);
 
-function authService($log, $q, $window, $http){
+function authService($log, $q, $window, $http, $location){
 
   // private variable
   let authToken;
@@ -32,7 +32,7 @@ function authService($log, $q, $window, $http){
       authToken = JSON.parse($window.localStorage.token);
       return $q.resolve(authToken);
     } catch(err) {
-      return $q.reject(err);
+      return $q.reject('No token found');
     }
   };
 
@@ -51,6 +51,17 @@ function authService($log, $q, $window, $http){
       return tokenSave(res.data);
     });
   };
+//new token functionality for logout
+  authService.logout = () => {
+    try {
+      delete $window.localStorage.token;
+      // delete authService.token;
+      authToken = null;
+      return $q.resolve();
 
+    } catch(err) {
+      return $q.reject(err);
+    }
+  };
   return authService;
 }

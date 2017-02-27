@@ -6,8 +6,11 @@ const angular = require('angular');
 
 const ngMarked = require('angular-marked');
 const uiRouter = require('angular-ui-router');
+const ngClipboard = require('angular-clipboard');
+const ngAnimate = require('angular-animate');
+const ngTouch = require('angular-touch');
 
-angular.module('blogApp', [uiRouter, ngMarked])
+angular.module('blogApp', [uiRouter, ngMarked, ngClipboard.name, 'ngTouch', 'ngAnimate'])
 .config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider){
   $urlRouterProvider.when('', '/layout');
 
