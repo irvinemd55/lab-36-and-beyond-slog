@@ -12,7 +12,7 @@ const ngTouch = require('angular-touch');
 
 angular.module('blogApp', [uiRouter, ngMarked, ngClipboard.name, 'ngTouch', 'ngAnimate'])
 .config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider){
-  $urlRouterProvider.when('', '/layout');
+  $urlRouterProvider.when('', '/home');
 
   let routes = [
     {
