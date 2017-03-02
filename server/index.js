@@ -28,6 +28,10 @@ app.use(morgan(process.env.LOG_FORMAT));
 app.use(require('./router/auth-router.js'));
 app.use(require('./router/page-router.js'));
 
+// static server
+app.use(express.static(`${__dirname}/../build`));
+app.get('*', (req, res) => res.redirect('/'));
+
 app.use((err, req, res, next) => {
   console.error(err.message);
   if(err.status)

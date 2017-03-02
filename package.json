@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "401 JS --  Lab 32 crud ===",
   "main": "main.js",
+  "engines": {
+    "node": "6.9.2"
+  },
   "dependencies": {
     "angular": "^1.6.2",
     "angular-animate": "^1.6.2",
@@ -35,11 +38,13 @@
     "url-loader": "^0.5.7",
     "uuid": "^3.0.1",
     "webpack": "^2.2.1",
+    "webpack-clean-plugin": "^0.2.3",
     "webpack-dev-server": "^2.4.1"
   },
   "devDependencies": {},
   "scripts": {
     "start": "node main.js",
+    "heroku-postbuild": "./node_modules/webpack/bin/webpack.js",
     "watch": "./node_modules/webpack-dev-server/bin/webpack-dev-server.js --inline --hot",
     "test": "./node_modules/mocha/bin/mocha ./server/test"
   },
