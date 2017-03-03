@@ -48,6 +48,7 @@ function authService($log, $q, $window, $http, $location){
 
     return $http.get(url, config)
     .then(res => {
+      console.log('Resdotdata' + res.data);
       return tokenSave(res.data);
     });
   };

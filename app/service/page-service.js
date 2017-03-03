@@ -9,6 +9,7 @@ function createPageService($log, $http, authService) {
   pageService.create = (page) => {
     return authService.tokenFetch()
     .then(token => {
+      console.log(token + 'some string after that');
       let url = `${__API_URL__}/api/page`;
       let config = {
         headers: {
