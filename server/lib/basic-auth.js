@@ -29,5 +29,8 @@ module.exports = (req, res, next) => {
     return firebase.auth().signOut();
   })
   .then(() => next())
-  .catch(err => next(createError(401, err.message)));
+  .catch(err => {
+    firebase.auth().signOut();
+    next(createError(401, err.message));
+  });
 };
