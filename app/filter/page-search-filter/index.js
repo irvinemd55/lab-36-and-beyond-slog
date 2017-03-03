@@ -13,3 +13,9 @@ require('angular').module('blogApp')
     });
   };
 });
+
+function generateFuzzyRegex(term){
+  if(!term) return /.*/;
+  let fuzzy = term.toLowerCase().split('').join('.*');
+  return new RegExp(`.*${fuzzy}.*`);
+}

@@ -17,7 +17,7 @@ function authService($log, $q, $window, $http, $location){
       $window.localStorage.token = JSON.stringify(token);
       authToken = token;
       return $q.resolve(token);
-    } catch (err) {
+    } catch(err) {
       return $q.reject(err);
     }
   };
